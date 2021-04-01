@@ -1,1 +1,4 @@
-log.txt
+.vscode
+__pycache__
+notes.txt
+.env
