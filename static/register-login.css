@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins' sans-serif;
+}
+body{
+  min-height: 10vh;
+  background-color: rgb(76, 163, 245);
+}
+.mainContainer{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6)
+}
+.contentBox{
+  position: relative;
+  width: 600px;
+  height: 500px;
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.contentBox .formContainer{
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: -10px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+/************* ERROR MESSAGE  **************/
+.field-container li{
+  list-style: none;
+  font-size: 20px;
+  color: rgb(238, 11, 60);
+}
+
+
+/************* TEXT  ELEMENT  **************/
+
+/* registration form - h1 */
+.formContent .welcome{
+  color:  rgb(83, 4, 100);
+  text-align: center;
+  align-items: center;
+  margin: 80px 0px -70px 0px;
+}
+/* login from  */
+.login{
+  color:  rgb(83, 4, 100);
+  text-align: center;
+  align-items: center;
+  margin: 80px 0px -44px 0px;
+}
+/* login from  - user name */
+.enter{
+  color:  rgb(83, 4, 100);
+  text-align: center;
+  align-items: center;
+  margin: 80px 0px -87px 0px;
+  font-size: 24px;
+}
+/*  footer elements */
+.return_homepage{
+  color:  rgb(60, 3, 73);
+  margin: 40px 0px 0px 0px;
+  font-size: 12px;
+}
+/*  footer elements */
+.return_homepage .login-here {
+  color:  rgb(207, 7, 252);
+}
+/*  footer elements */
+.return_homepage .login-return{
+  color:  rgb(207, 7, 252);
+}
+
+
+
+/********* FORM FIELDS  **********/
+.formContent .field-container{
+  margin: 90px 0px 20px 0px;
+}
+/* fields for registration form */
+.formContent .field-container input{
+  width: 70%;
+  padding: 12px 20px;
+  font-size: 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(135, 9, 167);
+  border-radius: 4px;
+}
+/* fields for login form */
+.formContent .field-container input{
+  width: 85%;
+  padding: 12px 20px;
+  font-size: 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(135, 9, 167);
+  border-radius: 4px;
+}
+
+
+/*********  BUTTON  **********/
+#submit_button{
+  /* background-color: rgb(80, 4, 98);  */
+  background: linear-gradient(135deg, #45adf1, #9b59b6);
+  border: none;
+  color: white;
+  padding: 13px 51px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 23px;
+  /* text-transform: uppercase; */
+  display: inline-block;
+  font-size: 20px;
+}
+

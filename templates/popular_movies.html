@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" rel="shortcut icon" href="/static/style.css"  >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  </head>
+  
+<body>
+    <header>
+            <div>
+              <a class="logo" href="/popular_movies"><h2>most popular movie list</h2></a>
+            </div>
+
+            <div>
+              <ul class="mainMenu">
+                <li><a href="/mypage">Back to My Account</a></li>
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+            </div>
+    </header>
+
+    <div id="container">
+     <main class="movie" id="main"></main>
+    </div>
+
+    <script>
+      const movies = {{ movies|tojson|safe }};
+    </script>
+    <script  src="{{ url_for('static', filename='popular_movies.js')}}" data-turbolinks-track="reload"></script>
+  
+</body>
+</html>
