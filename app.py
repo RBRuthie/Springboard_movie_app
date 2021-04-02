@@ -26,6 +26,7 @@ load_dotenv(find_dotenv())
 app.config['SECRET_KEY'] = os.environ.get("APP_SECRET")
 # location of database
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', "postgresql:///users")
+API_KEY = os.getenv("API_KEY")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
