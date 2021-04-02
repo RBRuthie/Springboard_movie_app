@@ -25,8 +25,7 @@ load_dotenv(find_dotenv())
 # its an app secret key to encription cookies, anythig pertaining to the app
 app.config['SECRET_KEY'] = os.environ.get("APP_SECRET")
 # location of database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///users'
-# os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', "postgresql:///users")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
