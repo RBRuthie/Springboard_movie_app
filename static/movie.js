@@ -9,17 +9,17 @@ const starIcon = document.getElementById("fa-star");
 
 
 // function to clear the screen from previously populatged fields
-function showMovies(movies){
+function colocarPelicula(movies){
   container.innerHTML = "";
 
   movies.forEach((movie) => {
     // pulling fields from API
     const { poster_path, title, vote_average, overview, favorite } = movie;
 
-    const movieEl = document.createElement("div");
-    movieEl.classList.add("movie");
+    const peliculaElemento = document.createElement("div");
+    peliculaElemento.classList.add("movie");
 
-    movieEl.innerHTML =
+    peliculaElemento.innerHTML =
     `
         <img
             src="${IMGPATH + poster_path}"
@@ -28,7 +28,7 @@ function showMovies(movies){
 
         <div class="movie-info">
             <h3>${title}</h3>
-            <span class="${getClassByRate
+            <span class="${viewerRatings
             (vote_average)}">${vote_average}</span>
         </div>
 
@@ -40,12 +40,12 @@ function showMovies(movies){
         </div>
         `;
 
-        container.appendChild(movieEl);
+        container.appendChild(peliculaElemento);
     });
 }
 
 // calling showmovie function
-showMovies(movies);
+colocarPelicula(movies);
 
 
 // eventlistner & if statement for taking term 
@@ -61,7 +61,7 @@ form.addEventListener("submit", (e) => {
         dataType: 'json',
         contentType: 'application/json',
         success:function(data, status, unused){
-          showMovies(data.results);
+          colocarPelicula(data.results);
           search.value = "";
         }
      })
@@ -71,7 +71,7 @@ form.addEventListener("submit", (e) => {
 
 
 // function for movie ratings
-function getClassByRate(vote) {
+function viewerRatings(vote) {
   if (vote >= 8) {
       return "green";
   } else if (vote >= 5) {

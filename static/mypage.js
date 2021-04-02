@@ -8,17 +8,17 @@ const search = document.getElementById("search");
 
 
 // function to clear the screen from previously populated fields
-function showMovies(movies, favorites){
+function colocarPelicula(movies, favorites){
   container.innerHTML = "";
 
   movies.forEach((movie) => {
     // pulling fields from API
     const { poster_path, title, vote_average, overview, id } = movie;
 
-    const movieEl = document.createElement("div")
-    movieEl.classList.add("movie")
+    const peliculaElemento = document.createElement("div")
+    peliculaElemento.classList.add("movie")
 
-    movieEl.innerHTML =
+    peliculaElemento.innerHTML =
     `
         <img
             src="${IMGPATH + poster_path}"
@@ -33,7 +33,7 @@ function showMovies(movies, favorites){
                    title="Click to toggle favorites">
                 </i>
             </a>
-            <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+            <span class="${viewerRatings(vote_average)}">${vote_average}</span>
         </div>
 
         
@@ -48,12 +48,12 @@ function showMovies(movies, favorites){
 
 `;
 
-    container.appendChild(movieEl);
+    container.appendChild(peliculaElemento);
 });
 }
 
 // call function & passing two variables
-showMovies(movies, favorites);
+colocarPelicula(movies, favorites);
 
 
 // toggle star to add movies to favorite
@@ -94,7 +94,7 @@ form.addEventListener("submit", (e) => {
         dataType: 'json',
         contentType: 'application/json',
         success:function(data, status, unused){
-          showMovies(data.results, favorites);
+          colocarPelicula(data.results, favorites);
           search.value = "";
         }
      })
@@ -105,7 +105,7 @@ form.addEventListener("submit", (e) => {
 
 
 // function for movie ratings
-function getClassByRate(vote) {
+function viewerRatings(vote) {
   if (vote >= 8) {
       return "green";
   } else if (vote >= 5) {

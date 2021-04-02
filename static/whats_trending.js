@@ -7,17 +7,17 @@ const search = document.getElementById("search");
 
 
 // function to clear the screen from previously populatged fields
-function showMovies(movies){
+function colocarPelicula(movies){
   container.innerHTML = "";
 
   movies.forEach((movie) => {
     // pulling fields from API
     const { poster_path, title, vote_average, overview, id } = movie;
 
-    const movieEl = document.createElement("div");
-    movieEl.classList.add("movie");
+    const peliculaElemento = document.createElement("div");
+    peliculaElemento.classList.add("movie");
 
-    movieEl.innerHTML =
+    peliculaElemento.innerHTML =
     `
         <img
             src="${IMGPATH + poster_path}"
@@ -25,7 +25,7 @@ function showMovies(movies){
         />
 
         <div class="movie-info">        
-        <span class="${getClassByRate
+        <span class="${viewerRatings
         (vote_average)}">${vote_average}</span>
         </div>
 
@@ -41,19 +41,19 @@ function showMovies(movies){
 
 `;
 
-    container.appendChild(movieEl);
+    container.appendChild(peliculaElemento);
 });
 }
 
 
-// calling showMovies function
-showMovies(movies);
+// calling colocarPelicula function
+colocarPelicula(movies);
 
 
 
 
 // function for movie ratings
-function getClassByRate(vote) {
+function viewerRatings(vote) {
     if (vote >= 8) {
         return "green";
     } else if (vote >= 5) {

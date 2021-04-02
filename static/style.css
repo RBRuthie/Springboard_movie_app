@@ -51,6 +51,12 @@ letter-spacing: 2px;
 font-weight: 700;
 cursor: pointer;
 }
+header .logo  h1:hover{
+color: yellow;
+}
+header .logo h4:hover{
+color: yellow;
+}
 header .mainMenu{
 display: flex;
 justify-content: flex-end;
@@ -64,9 +70,11 @@ font-size: 1.3rem;
 text-decoration: none;
 text-transform: uppercase;
 color: #fff;
+
 }
-header.mainMenu li a:hover{
-background:#7b53c5;
+header .mainMenu li a:hover{
+color: yellow;
+
 }
 
 .header-login, .login-here, .login-return{

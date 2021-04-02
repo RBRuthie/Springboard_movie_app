@@ -7,6 +7,7 @@ from models import User
 
 
 # customer validator (invlid credentials function) for login page, checking user name and password
+# based of Sandeep Sudhakaran: https://www.youtube.com/watch?v=7EeAZx78P2U
 def invalid_credentials(form, field):
     
     username_entered = form.username.data
@@ -48,6 +49,7 @@ class RegistrationForm(FlaskForm):
     
 # this is an inline custom validator
 # error catching 
+
     def validate_username(self, username):
         user_object = User.query.filter_by(username=username.data).first()
         # incase the username is duplicate

@@ -26,6 +26,7 @@ load_dotenv(find_dotenv())
 app.config['SECRET_KEY'] = os.environ.get("APP_SECRET")
 # location of database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///users'
+# os.environ.get("DATABASE")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
@@ -47,6 +48,15 @@ login.init_app(app)
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+# user logout
+@app.route("/logout", methods=['GET'])
+def logout():
+
+    # Logout user
+    logout_user()
+    # flash('You have logged out successfully')
+    return redirect(url_for('index'))
 
 
 
@@ -92,12 +102,10 @@ def signup():
           user = User(username=username, password=hashed_pswd)
           db.session.add(user)
           db.session.commit()
-          
           # when a user successfully register we will redirect the user to log in page 
-          flash('Registered succesfully. Please login.')
+        #   flash('Registered succesfully. Please login.')
           return redirect(url_for('login'))
          
-        
     return render_template('signup.html', form=reg_form)
   
   
@@ -120,7 +128,6 @@ def login():
         resp.set_cookie('user',login_form.username.data)
         return resp
         
-
     return render_template("login.html", form=login_form)
   
   
@@ -199,14 +206,7 @@ def favorite():
         return "movie removed from favorite"
 
 
-# user logout
-@app.route("/logout", methods=['GET'])
-def logout():
 
-    # Logout user
-    logout_user()
-    flash('You have logged out successfully')
-    return redirect(url_for('index'))
 
 
 
